@@ -10,11 +10,9 @@ export const PokemonModal = ({ pokemon, modalRef }) => {
   const principalType = types.length > 0 ? types[0].type : "";
   const classNameType = `col-12 col-md-6 pokemon-bg color-type-${principalType.name}`;
   const typeBadges = types.map((type, i) => {
-    const typeImage = `/src/assets/${type.type.name}.webp`;
+    const typeClass = `badge-type type-${type.type.name}`;
     return (
-      <div className="badge-type" key={i}>
-        <img src={typeImage} alt={`type ${type.type.name}`} />
-      </div>
+      <div className={typeClass} key={i} />
     );
   });
   const abilities = (pokemon?.abilities || [])

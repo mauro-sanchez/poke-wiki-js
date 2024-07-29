@@ -11,8 +11,7 @@ export const PokemonItem = ({ pokemon, handleClick }) => {
   const typeBadges = types.map((type, i) => {
     const typeClass = `badge-type type-${type.type.name}`;
     return (
-      <div className={typeClass} key={i}>
-      </div>
+      <div className={typeClass} key={i} />
     );
   });
   const abilities = pokemon.abilities
