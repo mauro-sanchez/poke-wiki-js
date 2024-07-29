@@ -9,10 +9,9 @@ export const PokemonItem = ({ pokemon, handleClick }) => {
   const principalType = types[0].type;
   const classNameType = `card-img-top color-type-${principalType.name}`;
   const typeBadges = types.map((type, i) => {
-    const typeImage = `/src/assets/${type.type.name}.webp`;
+    const typeClass = `badge-type type-${type.type.name}`;
     return (
-      <div className="badge-type" key={i}>
-        <img src={typeImage} alt={`type ${type.type.name}`} />
+      <div className={typeClass} key={i}>
       </div>
     );
   });

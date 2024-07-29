@@ -141,10 +141,10 @@ body {
   .badge-type {
     width: 32px;
     margin-left: 8px;
-
-    img {
-      width: 100%;
-    }
+    height: 32px;
+    background-position: center;
+    background-size: cover;
+    
   }
 }
 
@@ -390,3 +390,58 @@ body {
     line-height: 20px;
   }
 }
+
+.type-normal {
+  background-image: url("assets/normal.webp")
+};
+.type-fire {
+  background-image: url("assets/fire.webp")
+};
+.type-water {
+  background-image: url("assets/water.webp")
+};
+.type-electric {
+  background-image: url("assets/electric.webp")
+};
+.type-grass {
+  background-image: url("assets/grass.webp")
+};
+.type-ice {
+  background-image: url("assets/ice.webp")
+};
+.type-fighting {
+  background-image: url("assets/fighting.webp")
+};
+.type-poison {
+  background-image: url("assets/poison.webp")
+};
+.type-ground {
+  background-image: url("assets/ground.webp")
+};
+.type-flying {
+  background-image: url("assets/flying.webp")
+};
+.type-psychic {
+  background-image: url("assets/psychic.webp")
+};
+.type-bug {
+  background-image: url("assets/bug.webp")
+};
+.type-rock {
+  background-image: url("assets/rock.webp")
+};
+.type-ghost {
+  background-image: url("assets/ghost.webp")
+};
+.type-dragon {
+  background-image: url("assets/dragon.webp")
+};
+.type-dark {
+  background-image: url("assets/dark.webp")
+};
+.type-steel {
+  background-image: url("assets/steel.webp")
+};
+.type-fairy {
+  background-image: url("assets/fairy.webp")
+};
