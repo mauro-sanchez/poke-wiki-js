@@ -1,6 +1,6 @@
-import React from "react";
 import { LIMIT } from "../functions/common";
 import ResponsivePagination from "react-responsive-pagination";
+import PropTypes from "prop-types";
 
 export const Pagination = ({ currentOffset, totalCount, handlePageClick }) => {
   const totalPages = Math.ceil(totalCount / LIMIT);
@@ -19,6 +19,12 @@ export const Pagination = ({ currentOffset, totalCount, handlePageClick }) => {
       ariaNextLabel="next"
     />
   );
+};
+
+Pagination.propTypes = {
+  currentOffset: PropTypes.number,
+  totalCount: PropTypes.number,
+  handlePageClick: PropTypes.func,
 };
 
 export default Pagination;

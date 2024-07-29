@@ -1,4 +1,5 @@
 import { ProgressBar } from "react-loader-spinner";
+import PropTypes from "prop-types";
 
 const Spinner = ({ isLoading }) => (
   <div className={`spinner-container ${isLoading ? "loading" : ""}`}>
@@ -6,10 +7,8 @@ const Spinner = ({ isLoading }) => (
   </div>
 );
 
-// Spinner.propTypes = {
-//   children: PropTypes.node,
-//   index: PropTypes.number.isRequired,
-//   value: PropTypes.number.isRequired,
-// };
+Spinner.propTypes = {
+  isLoading: PropTypes.bool,
+};
 
 export default Spinner;

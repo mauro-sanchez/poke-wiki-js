@@ -1,5 +1,5 @@
-import React from "react";
 import pokeballIcon from "../assets/pokeball_icon.svg";
+import PropTypes from "prop-types";
 
 const Container = ({ children }) => {
   return (
@@ -19,4 +19,10 @@ const Container = ({ children }) => {
   );
 };
 
+Container.propTypes = {
+  children: PropTypes.node,
+};
+
+
 export default Container;
+

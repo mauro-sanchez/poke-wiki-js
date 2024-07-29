@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   getPokemonBySearch,
   getPokemonEvolutions,
@@ -95,6 +95,7 @@ export const Pokedex = () => {
 
   useEffect(() => {
     getPokemons({});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadPokemonItems = (list) => {

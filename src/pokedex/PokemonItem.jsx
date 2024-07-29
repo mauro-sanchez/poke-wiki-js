@@ -1,5 +1,5 @@
-import React from "react";
 import { generateImageLink } from "../functions/common";
+import PropTypes from "prop-types";
 
 export const PokemonItem = ({ pokemon, handleClick }) => {
   const pokemonId = pokemon.id;
@@ -10,9 +10,7 @@ export const PokemonItem = ({ pokemon, handleClick }) => {
   const classNameType = `card-img-top color-type-${principalType.name}`;
   const typeBadges = types.map((type, i) => {
     const typeClass = `badge-type type-${type.type.name}`;
-    return (
-      <div className={typeClass} key={i} />
-    );
+    return <div className={typeClass} key={i} />;
   });
   const abilities = pokemon.abilities
     .map((ab) => ab.ability.name.replaceAll("-", " "))
@@ -21,11 +19,11 @@ export const PokemonItem = ({ pokemon, handleClick }) => {
     <div className="pokemon-item" onClick={() => handleClick(pokemon)}>
       <div className="card">
         <div className={classNameType}>
-          <div className="pokemon-number">#{pokemon.id}</div>
+          <div className="pokemon-number">#{pokemon.nationalPokedexNumber}</div>
           <div className="pokemon-types">{typeBadges}</div>
           <img
             src={pokemonImage}
-            alt={`#${pokemon.id} ${pokemonName}`}
+            alt={`#${pokemon.nationalPokedexNumber} ${pokemonName}`}
             className="pokemon-image "
           />
         </div>
@@ -42,6 +40,32 @@ export const PokemonItem = ({ pokemon, handleClick }) => {
       </div>
     </div>
   );
+};
+
+PokemonItem.propTypes = {
+  pokemon: PropTypes.shape({
+    id: PropTypes.number,
+    weight: PropTypes.number,
+    species: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+    types: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.shape({
+          name: PropTypes.string,
+        }),
+      })
+    ),
+    abilities: PropTypes.arrayOf(
+      PropTypes.shape({
+        ability: PropTypes.shape({
+          name: PropTypes.string,
+        }),
+      })
+    ),
+    nationalPokedexNumber: PropTypes.number,
+  }),
+  handleClick: PropTypes.func,
 };
 
 export default PokemonItem;
