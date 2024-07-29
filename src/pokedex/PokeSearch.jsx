@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 export const PokeSearch = ({ handleSearch }) => {
   const [text, setText] = useState("");
@@ -28,6 +29,10 @@ export const PokeSearch = ({ handleSearch }) => {
       </div>
     </div>
   );
+};
+
+PokeSearch.propTypes = {
+  handleSearch: PropTypes.func,
 };
 
 export default PokeSearch;

@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 const AlertMessage = ({
@@ -12,7 +11,7 @@ const AlertMessage = ({
 
 AlertMessage.propTypes = {
   message: PropTypes.string,
-  classNames: PropTypes.string
+  className: PropTypes.string
 }
 
 export default AlertMessage;
