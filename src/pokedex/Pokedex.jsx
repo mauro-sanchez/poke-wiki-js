@@ -133,39 +133,43 @@ export const Pokedex = () => {
   };
 
   const handleSearch = (searchText) => {
-    setIsLoading(true);
-    let pokemon = null;
-    getPokemonBySearch({ idOrName: searchText.toLowerCase() })
-      .then((response) => {
-        pokemon = response.data;
-        return getPokemonFlavorText({ id: pokemon.id });
-      })
-      .then((response) => {
-        const flavorTexts = response.data.flavor_text_entries.filter(
-          (text) => text.language.name === "en"
-        );
-        pokemon.description = flavorTexts[flavorTexts.length - 1].flavor_text;
-        pokemon.nationalPokedexNumber = response.data.pokedex_numbers.find(
-          (x) => x.pokedex.name === "national"
-        ).entry_number;
-        pokemon.evolutionChainUrl = response.data.evolution_chain.url;
-        return getPokemonEvolutions({ url: pokemon.evolutionChainUrl });
-      })
-      .then((response) => {
-        pokemon.evolutionChain = response.data;
-        setActivePokemon(pokemon);
-      })
-      .catch((error) => {
-        setActivePokemon(null);
-        if (error.response.status === 404) {
-          showMessage("primary", "Error", ["Pokemon not found"]);
-        }
-        console.error(error);
-      })
-      .finally(() => {
-        if (!isNull(pokemon)) showPokemonModal();
-        setIsLoading(false);
-      });
+    if (searchText) {
+      setIsLoading(true);
+      let pokemon = null;
+      getPokemonBySearch({ idOrName: searchText.toLowerCase() })
+        .then((response) => {
+          pokemon = response.data;
+          return getPokemonFlavorText({ id: pokemon.id });
+        })
+        .then((response) => {
+          const flavorTexts = response.data.flavor_text_entries.filter(
+            (text) => text.language.name === "en"
+          );
+          pokemon.description = flavorTexts[flavorTexts.length - 1].flavor_text;
+          pokemon.nationalPokedexNumber = response.data.pokedex_numbers.find(
+            (x) => x.pokedex.name === "national"
+          ).entry_number;
+          pokemon.evolutionChainUrl = response.data.evolution_chain.url;
+          return getPokemonEvolutions({ url: pokemon.evolutionChainUrl });
+        })
+        .then((response) => {
+          pokemon.evolutionChain = response.data;
+          setActivePokemon(pokemon);
+        })
+        .catch((error) => {
+          setActivePokemon(null);
+          if (error.response.status === 404) {
+            showMessage("primary", "Error", ["Pokemon not found"]);
+          }
+          console.error(error);
+        })
+        .finally(() => {
+          if (!isNull(pokemon)) showPokemonModal();
+          setIsLoading(false);
+        });
+    } else {
+      showMessage("primary", "Error", ["Nothing to search"]);
+    }
   };
 
   const pokemonListClass = alert.showMessage
