@@ -2,7 +2,6 @@
   "name": "vite-test",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,8 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.7.2",
+    "axios-cache-interceptor": "^1.5.3",
+    "bootstrap": "^5.3.3",
+    "lodash": "^4.17.21",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-loader-spinner": "^6.1.6",
+    "react-responsive-pagination": "^2.6.1",
+    "sass": "^1.77.8",
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-require": "^1.2.14"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
